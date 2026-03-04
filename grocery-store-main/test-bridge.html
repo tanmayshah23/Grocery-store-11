@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SMTP Bridge Tester</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 40px;
+            text-align: center;
+            background: #f4f4f5;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            display: inline-block;
+            min-width: 400px;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #log {
+            margin-top: 20px;
+            text-align: left;
+            background: #1e1e1e;
+            color: #4ade80;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 13px;
+            max-height: 300px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Bridge Diagnostic</h1>
+        <p>This tests the exact fetching logic used in the app.</p>
+        <button id="runTest">RUN TEST</button>
+        <div id="log">Click run to start...</div>
+    </div>
+
+    <script>
+        const logEl = document.getElementById('log');
+        function log(msg) { logEl.innerHTML += '<br>> ' + msg; }
+
+        async function runTest() {
+            logEl.innerHTML = 'Starting...';
+            const url = "https://smtpjs.com/v1/send.aspx";
+
+            const data = new URLSearchParams();
+            data.append("Host", "smtp.gmail.com");
+            data.append("Username", "patelmeet4384@gmail.com");
+            data.append("Password", "bcbc ksqb cwzn gins");
+            data.append("To", "meetpatel4384@gmail.com");
+            data.append("From", "patelmeet4384@gmail.com");
+            data.append("Subject", "Final Bridge Diagnostic");
+            data.append("Body", "If this works, the bridge is fine.");
+
+            log("Firing fetch to smtpjs.com...");
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: data
+                });
+                const result = await response.text();
+                log("Result: " + result);
+                if (result === 'OK') {
+                    log("✅ SUCCESS! The browser can reach the bridge.");
+                } else {
+                    log("❌ BRIDGE REJECTED: Check credentials again.");
+                }
+            } catch (err) {
+                log("❌ FETCH ERROR: " + err.message);
+                log("HINT: If it says 'Failed to fetch', something (Adblock/Firewall) is blocking the site.");
+            }
+        }
+
+        document.getElementById('runTest').onclick = runTest;
+    </script>
+</body>
+
+</html>

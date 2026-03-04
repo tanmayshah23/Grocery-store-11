@@ -1,0 +1,2 @@
+src/components/Layout/Layout.tsx(61,10): error TS6133: 'isSidebarOpen' is declared but its value is never read.
+src/components/Layout/Layout.tsx(68,9): error TS6133: 'closeSidebar' is declared but its value is never read.
