@@ -114,7 +114,7 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
         >
           <div className="flex items-center justify-between p-5 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
                 <ShoppingBag size={20} />
               </div>
               <div>
@@ -133,7 +133,7 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
                 <input
                   type="text" value={customerName} onChange={e => setCustomerName(e.target.value.replace(/\d/g, ''))}
                   placeholder="e.g. Ramesh Kumar"
-                  className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none"
+                  className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none"
                 />
               </div>
               <div className="space-y-1.5">
@@ -142,7 +142,7 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
                   {PAYMENT_MODES.map(m => (
                     <button key={m.value} type="button"
                       onClick={() => setPaymentMode(m.value as any)}
-                      className={`py-2 px-3 rounded-xl text-xs font-bold transition-all text-left ${paymentMode === m.value ? 'bg-blue-600 text-white' : 'bg-muted/50 hover:bg-muted'}`}>
+                      className={`py-2 px-3 rounded-xl text-xs font-bold transition-all text-left ${paymentMode === m.value ? 'bg-emerald-600 text-white' : 'bg-muted/50 hover:bg-muted'}`}>
                       {m.label}
                     </button>
                   ))}
@@ -155,11 +155,11 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
               <div className="flex items-center justify-between">
                 <label className="text-sm font-bold">Items <span className="text-red-500">*</span></label>
                 <div className="flex items-center gap-4">
-                  <p className="text-[10px] text-blue-500 font-medium bg-blue-500/5 px-2 py-1 rounded-md border border-blue-500/10 hidden sm:block">
+                  <p className="text-[10px] text-emerald-500 font-medium bg-emerald-500/5 px-2 py-1 rounded-md border border-emerald-500/10 hidden sm:block">
                     💡 Tip: For gm/ml, enter price per kg/litre (e.g. 500gm at ₹40/kg = ₹20)
                   </p>
                   <button type="button" onClick={() => setItems(p => [...p, newItem()])}
-                    className="flex items-center gap-1.5 text-xs font-bold text-blue-500 hover:text-blue-400 transition-colors">
+                    className="flex items-center gap-1.5 text-xs font-bold text-emerald-500 hover:text-emerald-400 transition-colors">
                     <Plus size={14} /> Add Item
                   </button>
                 </div>
@@ -181,20 +181,20 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
                   <div key={item.id} className="grid grid-cols-12 gap-1.5 items-center">
                     <input type="text" placeholder="e.g. Sugar" value={item.name} required
                       onChange={e => updateItem(item.id, 'name', e.target.value.replace(/\d/g, ''))}
-                      className="col-span-3 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-3 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <input type="text" placeholder="Brand" value={item.brand}
                       onChange={e => updateItem(item.id, 'brand', e.target.value.replace(/\d/g, ''))}
-                      className="col-span-2 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-2 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <select value={item.unit} onChange={e => updateItem(item.id, 'unit', e.target.value)}
-                      className="col-span-2 bg-blue-500/5 border border-blue-200 dark:border-blue-500/30 rounded-lg py-2 px-1 text-xs font-bold text-blue-600 dark:text-blue-400 outline-none focus:border-blue-500 transition-all cursor-pointer">
+                      className="col-span-2 bg-emerald-500/5 border border-emerald-200 dark:border-emerald-500/30 rounded-lg py-2 px-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 outline-none focus:border-emerald-500 transition-all cursor-pointer">
                       {UNITS.map(u => <option key={u} value={u} className="bg-card text-foreground">{u.toUpperCase()}</option>)}
                     </select>
                     <input type="number" min={0.001} step="any" value={item.quantity}
                       onChange={e => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                      className="col-span-1 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-1 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <input type="number" min={0} step="0.01" placeholder="₹" value={item.price || ''}
                       onChange={e => updateItem(item.id, 'price', parseFloat(e.target.value) || 0)}
-                      className="col-span-2 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-2 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <span className="col-span-1 text-xs font-bold text-green-500 text-center">₹{item.total.toFixed(0)}</span>
                     {items.length > 1 && (
                       <button type="button" onClick={() => setItems(p => p.filter(i => i.id !== item.id))}
@@ -214,7 +214,7 @@ export function AddSaleModal({ isOpen, onClose, onSuccess }: AddSaleModalProps) 
             </div>
 
             <button type="submit" disabled={isLoading}
-              className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]">
+              className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-[0.98]">
               {isLoading ? 'Saving...' : 'Save Bill — Stored locally.'}
             </button>
           </form>

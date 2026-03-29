@@ -38,9 +38,9 @@ export function PWAInstallBanner() {
                 transition={{ type: 'spring', stiffness: 300, damping: 28 }}
                 className="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 backdrop-blur-xl p-6"
             >
-                <div className="bg-card border border-blue-500/30 rounded-[2.5rem] shadow-2xl p-8 flex flex-col items-center gap-6 relative w-full xl:w-1/3 max-w-sm">
+                <div className="bg-card border border-emerald-500/30 rounded-[2.5rem] shadow-2xl p-8 flex flex-col items-center gap-6 relative w-full xl:w-1/3 max-w-sm">
                     <div className="flex flex-col flex-1 min-w-0 text-center items-center justify-center space-y-4">
-                        <div className="h-20 w-20 rounded-3xl bg-blue-600 flex items-center justify-center shadow-[0_0_40px_-10px_rgba(37,99,235,0.8)]">
+                        <div className="h-20 w-20 rounded-3xl bg-emerald-600 flex items-center justify-center shadow-[0_0_40px_-10px_rgba(37,99,235,0.8)]">
                             <Smartphone size={40} className="text-white" />
                         </div>
                         <div>
@@ -52,7 +52,7 @@ export function PWAInstallBanner() {
                         <div className="w-full max-w-xs mt-6">
                             <button
                                 onClick={handleInstall}
-                                className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-lg font-black transition-all active:scale-[0.97] shadow-[0_10px_20px_-10px_rgba(37,99,235,0.6)]"
+                                className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-black transition-all active:scale-[0.97] shadow-[0_10px_20px_-10px_rgba(37,99,235,0.6)]"
                             >
                                 <Download size={20} /> ONE-CLICK INSTALL
                             </button>

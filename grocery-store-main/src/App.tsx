@@ -8,6 +8,7 @@ import { SalesDashboard } from './components/Dashboard/Sales';
 import { PurchasesDashboard } from './components/Dashboard/Purchases';
 import { ExpensesDashboard } from './components/Dashboard/Expenses';
 import { KhataDashboard } from './components/Dashboard/Khata';
+import { MarketingHub } from './components/Dashboard/Marketing';
 import { AddSaleModal } from './components/modals/AddSaleModal';
 import { AddExpenseModal } from './components/modals/AddExpenseModal';
 import { Store, User } from 'lucide-react';
@@ -22,7 +23,7 @@ import { QuantumLoader } from './components/shared/QuantumLoader';
 import { PWAInstallPrompt } from './components/shared/PWAInstallPrompt';
 
 
-type View = 'dashboard' | 'sales' | 'purchases' | 'expenses' | 'khata';
+type View = 'dashboard' | 'sales' | 'purchases' | 'expenses' | 'khata' | 'marketing';
 
 // ── Hashing Utility ──
 async function hashPin(pin: string): Promise<string> {
@@ -367,6 +368,7 @@ function AppContent() {
       case 'purchases': return <PurchasesDashboard />;
       case 'expenses': return <ExpensesDashboard />;
       case 'khata': return <KhataDashboard />;
+      case 'marketing': return <MarketingHub />;
       default: return <DashboardOverview />;
     }
   };
@@ -454,7 +456,7 @@ function AppContent() {
                   <CheckCircle size={18} />
                 </div>
               ) : (
-                <div className="h-8 w-8 rounded-full bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                <div className="h-8 w-8 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
                   <Info size={18} />
                 </div>
               )}
@@ -482,7 +484,7 @@ function AuthWrapper({ children }: any) {
 
   return (
     <div
-      className="h-screen w-screen flex items-center justify-center bg-[#050608] relative overflow-hidden text-white font-inter"
+      className="h-screen w-screen flex items-center justify-center bg-[#060f0b] relative overflow-hidden text-white font-inter"
       onMouseMove={handleMouseMove}
     >
       <Portal3D rotation={rotation}>
@@ -531,7 +533,7 @@ function SetupView({
 
           <button
             onClick={onFinish}
-            className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-95"
+            className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
           >
             PROCEED TO LOGIN <Check size={20} />
           </button>
@@ -542,24 +544,24 @@ function SetupView({
 
   return (
     <div className="w-full relative preserve-3d">
-      <div className="glass rounded-[2.5rem] p-8 md:p-10 shadow-3xl border border-blue-500/10 relative overflow-hidden backdrop-blur-3xl preserve-3d">
+      <div className="glass rounded-[2.5rem] p-8 md:p-10 shadow-3xl border border-emerald-500/10 relative overflow-hidden backdrop-blur-3xl preserve-3d">
         <div className="text-center mb-8 space-y-4">
           <div className="inline-flex h-20 w-20 items-center justify-center rounded-[2rem] glass p-1 shadow-2xl mx-auto">
-            <div className="h-full w-full rounded-[1.8rem] bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+            <div className="h-full w-full rounded-[1.8rem] bg-gradient-to-br from-teal-600 to-emerald-800 flex items-center justify-center">
               <Store className="h-10 w-10 text-white" />
             </div>
           </div>
           <div className="space-y-1">
             <h2 className="text-3xl font-black tracking-tight text-white">Quantum Setup</h2>
-            <p className="text-blue-400/30 font-black tracking-widest text-[9px] uppercase">Initialize Retail Architecture v4.2</p>
+            <p className="text-emerald-400/30 font-black tracking-widest text-[9px] uppercase">Initialize Retail Architecture v4.2</p>
           </div>
         </div>
 
         <form onSubmit={handleSetup} className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
           <div className="space-y-2 col-span-2">
-            <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Store Designation</label>
-            <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-0.5">
-              <Store size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+            <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Store Designation</label>
+            <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-0.5">
+              <Store size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
               <input
                 type="text"
                 required
@@ -572,9 +574,9 @@ function SetupView({
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Lead Administrator</label>
-            <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-0.5">
-              <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+            <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Lead Administrator</label>
+            <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-0.5">
+              <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
               <input
                 type="text"
                 className="w-full bg-transparent py-4 pl-12 pr-4 outline-none font-bold text-sm text-white"
@@ -586,9 +588,9 @@ function SetupView({
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Contact Link</label>
-            <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-0.5">
-              <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+            <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Contact Link</label>
+            <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-0.5">
+              <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
               <input
                 type="tel"
                 required
@@ -601,9 +603,9 @@ function SetupView({
           </div>
 
           <div className="space-y-2 col-span-2">
-            <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">System Communication Email</label>
-            <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-0.5">
-              <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+            <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">System Communication Email</label>
+            <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-0.5">
+              <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
               <input
                 type="email"
                 required
@@ -616,9 +618,9 @@ function SetupView({
           </div>
 
           <div className="space-y-2 col-span-2">
-            <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Encryption Signature (PIN)</label>
-            <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-0.5">
-              <Key size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+            <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Encryption Signature (PIN)</label>
+            <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-0.5">
+              <Key size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
               <input
                 type={showPin ? "text" : "password"}
                 required
@@ -630,7 +632,7 @@ function SetupView({
               <button
                 type="button"
                 onClick={() => setShowPin(!showPin)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-400/40 hover:text-blue-400"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400/40 hover:text-emerald-400"
               >
                 {showPin ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
@@ -639,7 +641,7 @@ function SetupView({
 
           <button
             type="submit"
-            className="col-span-2 py-5 mt-4 rounded-2xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-4 active:scale-[0.97]"
+            className="col-span-2 py-5 mt-4 rounded-2xl bg-gradient-to-r from-teal-800 via-emerald-600 to-teal-700 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(45,138,106,0.5)] flex items-center justify-center gap-4 active:scale-[0.97]"
           >
             BOOTSTRAP TERMINAL <ChevronRight size={18} />
           </button>
@@ -673,12 +675,12 @@ function LoginView({
       {/* Multi-layered Glass Card */}
       <div className="relative group perspective-2000">
         {/* Decorative Outer Shadow Layer */}
-        <div className="absolute -inset-4 bg-blue-600/10 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
+        <div className="absolute -inset-4 bg-emerald-600/10 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
 
         {/* Main 3D Card Body */}
-        <div className="glass rounded-[2.5rem] p-1 shadow-3xl border border-blue-500/10 relative overflow-hidden backdrop-blur-3xl preserve-3d">
+        <div className="glass rounded-[2.5rem] p-1 shadow-3xl border border-emerald-500/10 relative overflow-hidden backdrop-blur-3xl preserve-3d">
           {/* Internal Reflective Layer */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-30 pointer-events-none" />
 
           <div className="p-8 md:p-10 relative z-10 space-y-8">
             <div className="text-center space-y-4 mb-2">
@@ -687,7 +689,7 @@ function LoginView({
                 animate={{ scale: 1, rotate: 0 }}
                 className="w-24 h-24 mx-auto glass rounded-[2rem] p-4 shadow-2xl relative preserve-3d"
               >
-                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-4xl font-black italic tracking-tighter shadow-inner transform translate-z-10">
+                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-800 flex items-center justify-center text-4xl font-black italic tracking-tighter shadow-inner transform translate-z-10">
                   {forgotPinMode ? <ShieldCheck size={40} className="text-white" /> : (settings?.logo_letter || 'S')}
                 </div>
               </motion.div>
@@ -698,7 +700,7 @@ function LoginView({
                     ? (isUrlRecovery ? 'Security Override' : emailSent ? 'Portal Active' : 'Access Recovery')
                     : 'Authentication'}
                 </h1>
-                <p className="text-blue-400/30 font-black tracking-[0.3em] text-[10px] uppercase">
+                <p className="text-emerald-400/30 font-black tracking-[0.3em] text-[10px] uppercase">
                   {forgotPinMode
                     ? 'System-Wide Secure Protocol'
                     : `Precision Engine • ${settings?.store_name || 'Retail Core'}`}
@@ -712,9 +714,9 @@ function LoginView({
                 {!emailSent && !isUrlRecovery ? (
                   <div className="space-y-6 relative z-10">
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Recovery Target</label>
-                      <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-1">
-                        <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20" />
+                      <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Recovery Target</label>
+                      <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-1">
+                        <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20" />
                         <input
                           type="email"
                           className="w-full bg-transparent py-4 pl-12 pr-4 outline-none font-bold text-sm tracking-wide text-white"
@@ -726,30 +728,30 @@ function LoginView({
                     </div>
                     <button
                       onClick={handleSendRecoveryEmail}
-                      className="w-full py-5 rounded-2xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(59,130,246,0.6)] flex items-center justify-center gap-4 active:scale-[0.97]"
+                      className="w-full py-5 rounded-2xl bg-gradient-to-r from-teal-800 via-emerald-600 to-teal-700 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(45,138,106,0.6)] flex items-center justify-center gap-4 active:scale-[0.97]"
                     >
                       INITIALIZE RECOVERY
                     </button>
                   </div>
                 ) : emailSent && !isUrlRecovery ? (
                   <div className="text-center space-y-6 py-6 relative z-10 animate-in fade-in zoom-in-95">
-                    <div className="p-6 bg-blue-500/5 border border-blue-500/10 rounded-[2rem] space-y-4">
-                      <div className="w-12 h-12 mx-auto rounded-full bg-blue-500/10 flex items-center justify-center">
-                        <Mail className="h-6 w-6 text-blue-400" />
+                    <div className="p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-[2rem] space-y-4">
+                      <div className="w-12 h-12 mx-auto rounded-full bg-emerald-500/10 flex items-center justify-center">
+                        <Mail className="h-6 w-6 text-emerald-400" />
                       </div>
                       <div className="space-y-1">
-                        <p className="text-sm font-medium text-blue-100">Verification dispatched to:</p>
+                        <p className="text-sm font-medium text-emerald-100">Verification dispatched to:</p>
                         <p className="text-lg font-black text-white">{recoveryEmail}</p>
                       </div>
                     </div>
-                    <p className="text-xs text-blue-400/30 leading-relaxed font-medium italic">Please authorize the request via the email link.</p>
+                    <p className="text-xs text-emerald-400/30 leading-relaxed font-medium italic">Please authorize the request via the email link.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleResetPin} className="space-y-6 relative z-10">
                     <div className="space-y-4">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">New Security Signature (PIN)</label>
-                        <div className="relative glass border-blue-500/5 focus-within:border-green-500/50 rounded-2xl py-1">
+                        <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">New Security Signature (PIN)</label>
+                        <div className="relative glass border-emerald-500/5 focus-within:border-green-500/50 rounded-2xl py-1">
                           <input
                             type={showPin ? "text" : "password"}
                             required
@@ -762,15 +764,15 @@ function LoginView({
                           <button
                             type="button"
                             onClick={() => setShowPin(!showPin)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-400/20 hover:text-white"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400/20 hover:text-white"
                           >
                             {showPin ? <EyeOff size={18} /> : <Eye size={18} />}
                           </button>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black tracking-[0.2em] text-blue-400/30 uppercase ml-2">Confirm Encryption Key</label>
-                        <div className="relative glass border-blue-500/5 focus-within:border-green-500/50 rounded-2xl py-1">
+                        <label className="text-[10px] font-black tracking-[0.2em] text-emerald-400/30 uppercase ml-2">Confirm Encryption Key</label>
+                        <div className="relative glass border-emerald-500/5 focus-within:border-green-500/50 rounded-2xl py-1">
                           <input
                             type={showPin ? "text" : "password"}
                             required
@@ -794,7 +796,7 @@ function LoginView({
                 <button
                   type="button"
                   onClick={() => setForgotPinMode(false)}
-                  className="w-full mt-2 text-[10px] font-black tracking-[0.3em] text-blue-400/20 hover:text-blue-400 uppercase transition-colors"
+                  className="w-full mt-2 text-[10px] font-black tracking-[0.3em] text-emerald-400/20 hover:text-emerald-400 uppercase transition-colors"
                 >
                   Return to Core Authentication
                 </button>
@@ -803,11 +805,11 @@ function LoginView({
               /* Login View logic */
               <form onSubmit={handleLogin} className="space-y-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black tracking-[0.3em] text-blue-400/30 uppercase ml-2">Access Key</label>
+                  <label className="text-[10px] font-black tracking-[0.3em] text-emerald-400/30 uppercase ml-2">Access Key</label>
                   <div className="relative group/input">
-                    <div className="absolute -inset-0.5 bg-blue-500/0 group-focus-within/input:bg-blue-500/20 rounded-2xl blur-sm transition-all" />
-                    <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-1 transition-all">
-                      <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20 group-focus-within/input:text-blue-400 transition-colors" />
+                    <div className="absolute -inset-0.5 bg-emerald-500/0 group-focus-within/input:bg-emerald-500/20 rounded-2xl blur-sm transition-all" />
+                    <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-1 transition-all">
+                      <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20 group-focus-within/input:text-emerald-400 transition-colors" />
                       <input
                         type="text"
                         required
@@ -823,23 +825,23 @@ function LoginView({
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between px-2">
-                    <label className="text-[10px] font-black tracking-[0.3em] text-blue-400/30 uppercase">Secret PIN</label>
+                    <label className="text-[10px] font-black tracking-[0.3em] text-emerald-400/30 uppercase">Secret PIN</label>
                     <button
                       type="button"
                       onClick={() => setForgotPinMode(true)}
-                      className="text-[10px] font-black tracking-widest text-blue-400/60 hover:text-blue-400 transition-colors"
+                      className="text-[10px] font-black tracking-widest text-emerald-400/60 hover:text-emerald-400 transition-colors"
                     >
                       OVERRIDE
                     </button>
                   </div>
                   <div className="relative group/input">
-                    <div className="absolute -inset-0.5 bg-blue-500/0 group-focus-within/input:bg-blue-500/20 rounded-2xl blur-sm transition-all" />
-                    <div className="relative glass border-blue-500/5 focus-within:border-blue-500/50 rounded-2xl py-1 transition-all">
-                      <Key size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400/20 group-focus-within/input:text-blue-400 transition-colors" />
+                    <div className="absolute -inset-0.5 bg-emerald-500/0 group-focus-within/input:bg-emerald-500/20 rounded-2xl blur-sm transition-all" />
+                    <div className="relative glass border-emerald-500/5 focus-within:border-emerald-500/50 rounded-2xl py-1 transition-all">
+                      <Key size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/20 group-focus-within/input:text-emerald-400 transition-colors" />
                       <input
                         type={showPin ? "text" : "password"}
                         required
-                        className="w-full bg-transparent py-4 pl-12 pr-12 outline-none font-bold text-sm tracking-[0.4em] text-white placeholder:tracking-normal placeholder:text-blue-500/10"
+                        className="w-full bg-transparent py-4 pl-12 pr-12 outline-none font-bold text-sm tracking-[0.4em] text-white placeholder:tracking-normal placeholder:text-emerald-500/10"
                         placeholder="••••"
                         value={loginData.password}
                         onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
@@ -847,7 +849,7 @@ function LoginView({
                       <button
                         type="button"
                         onClick={() => setShowPin(!showPin)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-400/40 hover:text-blue-400 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400/40 hover:text-emerald-400 transition-colors"
                       >
                         {showPin ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
@@ -857,7 +859,7 @@ function LoginView({
 
                 <button
                   type="submit"
-                  className="w-full py-5 rounded-2xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(59,130,246,0.6)] flex items-center justify-center gap-4 active:scale-[0.97] group/btn mt-4"
+                  className="w-full py-5 rounded-2xl bg-gradient-to-r from-teal-800 via-emerald-600 to-teal-700 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-white font-black text-sm tracking-[0.3em] shadow-[0_0_50px_-10px_rgba(45,138,106,0.6)] flex items-center justify-center gap-4 active:scale-[0.97] group/btn mt-4"
                 >
                   INITIALIZE COGNITION
                   <ChevronRight size={18} className="group-hover:translate-x-2 transition-transform" />
@@ -869,9 +871,9 @@ function LoginView({
       </div>
 
       <div className="mt-12 text-center">
-        <div className="inline-flex items-center gap-3 px-4 py-2 glass rounded-full border border-blue-500/10 opacity-40">
-          <ShieldCheck size={12} className="text-blue-400" />
-          <span className="text-[9px] font-black tracking-[0.4em] uppercase text-blue-100/40">
+        <div className="inline-flex items-center gap-3 px-4 py-2 glass rounded-full border border-emerald-500/10 opacity-40">
+          <ShieldCheck size={12} className="text-emerald-400" />
+          <span className="text-[9px] font-black tracking-[0.4em] uppercase text-emerald-100/40">
             End-to-End Quantum Encryption Active
           </span>
         </div>

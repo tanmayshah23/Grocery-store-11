@@ -89,14 +89,14 @@ export function PurchasesDashboard() {
           <div className="flex bg-muted/50 p-1 rounded-xl border border-border">
             {(['invoices', 'suppliers'] as const).map(m => (
               <button key={m} onClick={() => setViewMode(m)}
-                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all capitalize ${viewMode === m ? 'bg-card shadow-sm text-blue-500' : 'text-muted-foreground'}`}>
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all capitalize ${viewMode === m ? 'bg-card shadow-sm text-emerald-500' : 'text-muted-foreground'}`}>
                 {m}
               </button>
             ))}
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-[0.98]"
           >
             <Plus size={18} />
             <span className="hidden sm:inline">Add Purchase</span><span className="sm:hidden">+</span>
@@ -120,7 +120,7 @@ export function PurchasesDashboard() {
             setRange({ ...r }); // Re-trigger useLiveQuery
             notify('Data updated', 'success');
           }}
-          className="p-2.5 hover:bg-muted rounded-xl text-muted-foreground hover:text-blue-500 transition-all active:rotate-180 duration-500 border border-border"
+          className="p-2.5 hover:bg-muted rounded-xl text-muted-foreground hover:text-emerald-500 transition-all active:rotate-180 duration-500 border border-border"
           title="Refresh Data"
         >
           <RotateCcw size={18} />
@@ -130,7 +130,7 @@ export function PurchasesDashboard() {
       {/* Stat Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div className="card p-5 flex items-center gap-4">
-          <div className="h-12 w-12 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0"><Truck size={22} /></div>
+          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0"><Truck size={22} /></div>
           <div>
             <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">Suppliers</p>
             <p className="text-2xl font-bold">{uniqueSuppliers.length}</p>
@@ -169,7 +169,7 @@ export function PurchasesDashboard() {
                   contentStyle={{ backgroundColor: 'var(--card-bg,#1a1a1a)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
                   formatter={(v) => [`₹${Number(v).toLocaleString()}`, 'Spend']}
                 />
-                <Bar dataKey="total" fill="#3b82f6" radius={[0, 6, 6, 0]}>
+                <Bar dataKey="total" fill="#2d8a6a" radius={[0, 6, 6, 0]}>
                   <LabelList dataKey="total" position="right" formatter={(v: any) => `₹${Number(v).toLocaleString()}`} stroke="none" style={{ fontSize: 10, fontWeight: 700, fill: '#888' }} />
                 </Bar>
               </BarChart>
@@ -187,14 +187,14 @@ export function PurchasesDashboard() {
               placeholder="Search supplier, invoice..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full bg-muted/30 border border-transparent focus:border-blue-500 focus:bg-card rounded-xl py-2.5 pl-10 pr-4 transition-all outline-none"
+              className="w-full bg-muted/30 border border-transparent focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 pl-10 pr-4 transition-all outline-none"
             />
           </div>
           {uniqueSuppliers.length > 0 && (
             <select
               value={supplierFilter}
               onChange={e => setSupplierFilter(e.target.value)}
-              className="bg-muted/50 border border-border rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-blue-500 transition-colors"
+              className="bg-muted/50 border border-border rounded-xl px-3 py-2 text-sm font-medium outline-none focus:border-emerald-500 transition-colors"
             >
               <option value="">All Suppliers</option>
               {uniqueSuppliers.map(s => <option key={s} value={s}>{s}</option>)}
@@ -241,7 +241,7 @@ export function PurchasesDashboard() {
                         ? <ChevronDown size={16} className="text-muted-foreground" />
                         : <ChevronRight size={16} className="text-muted-foreground" />}
                     </td>
-                    <td className="px-6 py-4 font-mono text-xs font-bold text-blue-500">{pur.invoice_number}</td>
+                    <td className="px-6 py-4 font-mono text-xs font-bold text-emerald-500">{pur.invoice_number}</td>
                     <td className="px-6 py-4">
                       <div className="font-semibold flex items-center gap-2">
                         <div className="h-7 w-7 rounded-full bg-muted flex items-center justify-center text-xs font-black">{pur.supplier_name[0]}</div>

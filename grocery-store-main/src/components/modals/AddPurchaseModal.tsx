@@ -110,7 +110,7 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
         >
           <div className="flex items-center justify-between p-5 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
                 <Package size={20} />
               </div>
               <div>
@@ -128,14 +128,14 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
                 <input type="text" required value={supplierName}
                   onChange={e => setSupplierName(e.target.value.replace(/\d/g, ''))}
                   placeholder="e.g. Shree Distributor"
-                  className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none" />
+                  className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none" />
               </div>
               <div className="space-y-1.5">
                 <label className="text-sm font-bold">Invoice / Bill No.</label>
                 <input type="text" value={invoiceNumber}
                   onChange={e => setInvoiceNumber(e.target.value)}
                   placeholder="e.g. INV-2024-001"
-                  className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none" />
+                  className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 transition-all outline-none" />
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
                 {PAYMENT_MODES.map(m => (
                   <button key={m.value} type="button"
                     onClick={() => setPaymentMode(m.value as any)}
-                    className={`py-2 px-3 rounded-xl text-xs font-bold transition-all ${paymentMode === m.value ? 'bg-blue-600 text-white' : 'bg-muted/50 hover:bg-muted'}`}>
+                    className={`py-2 px-3 rounded-xl text-xs font-bold transition-all ${paymentMode === m.value ? 'bg-emerald-600 text-white' : 'bg-muted/50 hover:bg-muted'}`}>
                     {m.label}
                   </button>
                 ))}
@@ -161,7 +161,7 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
                     💡 Tip: For gm/ml, enter the buy price per kg/litre.
                   </p>
                   <button type="button" onClick={() => setItems(p => [...p, newItem()])}
-                    className="flex items-center gap-1.5 text-xs font-bold text-blue-500 hover:text-blue-400 transition-colors">
+                    className="flex items-center gap-1.5 text-xs font-bold text-emerald-500 hover:text-emerald-400 transition-colors">
                     <Plus size={14} /> Add Item
                   </button>
                 </div>
@@ -182,21 +182,21 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
                   <div key={item.id} className="grid grid-cols-12 gap-1.5 items-center">
                     <input type="text" required placeholder="e.g. Rice" value={item.name}
                       onChange={e => updateItem(item.id, 'name', e.target.value.replace(/\d/g, ''))}
-                      className="col-span-3 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-3 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <input type="text" placeholder="Brand" value={item.brand}
                       onChange={e => updateItem(item.id, 'brand', e.target.value.replace(/\d/g, ''))}
-                      className="col-span-2 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-2 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <select value={item.unit} onChange={e => updateItem(item.id, 'unit', e.target.value)}
                       className="col-span-2 bg-green-500/5 border border-green-200 dark:border-green-500/30 rounded-lg py-2 px-1 text-xs font-bold text-green-600 dark:text-green-400 outline-none focus:border-green-500 transition-all cursor-pointer">
                       {UNITS.map(u => <option key={u} value={u} className="bg-card text-foreground">{u.toUpperCase()}</option>)}
                     </select>
                     <input type="number" min={0.001} step="any" value={item.quantity}
                       onChange={e => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                      className="col-span-1 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                      className="col-span-1 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
                     <input type="number" min={0} step="0.01" placeholder="₹" value={item.purchase_price || ''}
                       onChange={e => updateItem(item.id, 'purchase_price', parseFloat(e.target.value) || 0)}
-                      className="col-span-2 bg-muted/50 border border-border focus:border-blue-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
-                    <span className="col-span-1 text-xs font-bold text-blue-500 text-center">₹{item.total.toFixed(0)}</span>
+                      className="col-span-2 bg-muted/50 border border-border focus:border-emerald-500 rounded-lg py-2 px-2 text-sm outline-none transition-all focus:bg-card" />
+                    <span className="col-span-1 text-xs font-bold text-emerald-500 text-center">₹{item.total.toFixed(0)}</span>
                     {items.length > 1 && (
                       <button type="button" onClick={() => setItems(p => p.filter(i => i.id !== item.id))}
                         className="col-span-1 p-1.5 hover:bg-red-500/10 text-red-500 rounded-lg transition-colors">
@@ -232,11 +232,11 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
               <textarea value={notes} onChange={e => setNotes(e.target.value)}
                 placeholder="Details of batch, expiry, quality, etc."
                 rows={2}
-                className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 text-sm outline-none transition-all resize-none" />
+                className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 text-sm outline-none transition-all resize-none" />
             </div>
 
             {/* Grand Total */}
-            <div className="p-4 bg-blue-500/5 border border-blue-500/20 rounded-xl space-y-1.5">
+            <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl space-y-1.5">
               <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Items Total</span>
                 <span className="font-bold">₹{itemsTotal.toLocaleString()}</span>
@@ -249,12 +249,12 @@ export function AddPurchaseModal({ isOpen, onClose, onSuccess }: AddPurchaseModa
               )}
               <div className="flex justify-between border-t border-border pt-1.5">
                 <span className="font-bold">Grand Total</span>
-                <span className="text-xl font-black text-blue-500">₹{grandTotal.toLocaleString()}</span>
+                <span className="text-xl font-black text-emerald-500">₹{grandTotal.toLocaleString()}</span>
               </div>
             </div>
 
             <button type="submit" disabled={isLoading}
-              className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]">
+              className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-[0.98]">
               {isLoading ? 'Saving...' : 'Save Purchase — Stored locally.'}
             </button>
           </form>

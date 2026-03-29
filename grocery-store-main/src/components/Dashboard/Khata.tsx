@@ -53,7 +53,14 @@ export function KhataDashboard() {
   const generateReminderMessage = (khata: Khata) => {
     const storeName = settings?.store_name || "our store";
     const amount = khata.pending_amount.toLocaleString();
-    return `Hello ${khata.customer_name},\n\nThis is a gentle reminder from ${storeName} regarding your pending Khata balance of ₹${amount}. Please arrange for payment at your earliest convenience.\n\nThank you!`;
+
+    // Gujarati message
+    const gujaratiMsg = `🙏 નમસ્તે ${khata.customer_name},\n\nઆ ${storeName} તરફથી એક નમ્ર યાદ છે.\nતમારી ખાતા બાકી રકમ ₹${amount} છે.\nકૃપા કરીને જલ્દીથી ચુકવણી કરવા વિનંતી.\n\nઆભાર! 🙏`;
+
+    // English message
+    const englishMsg = `Hello ${khata.customer_name},\n\nThis is a gentle reminder from ${storeName} regarding your pending Khata balance of ₹${amount}. Please arrange for payment at your earliest convenience.\n\nThank you!`;
+
+    return `${gujaratiMsg}\n\n━━━━━━━━━━━━━━━━━━\n\n${englishMsg}`;
   };
 
   const handleWhatsAppReminder = (khata: Khata) => {
@@ -91,7 +98,7 @@ export function KhataDashboard() {
           </button>
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-[0.98]"
           >
             <UserPlus size={18} />
             <span className="hidden sm:inline">New Khata Account</span><span className="sm:hidden">+ Khata</span>
@@ -115,11 +122,11 @@ export function KhataDashboard() {
             <CheckCircle2 size={20} className="text-green-500" />
           </div>
         </div>
-        <div className="card p-6 bg-blue-500/5 border-blue-500/20">
-          <p className="text-xs font-bold text-blue-500/80 uppercase tracking-wider">Active Borrowers</p>
+        <div className="card p-6 bg-emerald-500/5 border-emerald-500/20">
+          <p className="text-xs font-bold text-emerald-500/80 uppercase tracking-wider">Active Borrowers</p>
           <div className="flex items-end justify-between mt-2">
-            <span className="font-black text-3xl text-blue-500">{activeBorrowers} People</span>
-            <span className="text-xs bg-blue-500/10 text-blue-500 px-2 py-1 rounded-lg font-bold">Total: {khataEntries?.length || 0}</span>
+            <span className="font-black text-3xl text-emerald-500">{activeBorrowers} People</span>
+            <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-1 rounded-lg font-bold">Total: {khataEntries?.length || 0}</span>
           </div>
         </div>
       </div>
@@ -133,7 +140,7 @@ export function KhataDashboard() {
               placeholder="Search by name or phone..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full bg-muted/30 border border-transparent focus:border-blue-500 focus:bg-card rounded-xl py-2.5 pl-10 pr-4 transition-all outline-none"
+              className="w-full bg-muted/30 border border-transparent focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 pl-10 pr-4 transition-all outline-none"
             />
           </div>
         </div>
@@ -176,7 +183,7 @@ export function KhataDashboard() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-blue-600/10 text-blue-600 flex items-center justify-center font-bold text-sm">
+                        <div className="h-10 w-10 rounded-full bg-emerald-600/10 text-emerald-600 flex items-center justify-center font-bold text-sm">
                           {item.customer_name[0].toUpperCase()}
                         </div>
                         <div>
@@ -217,7 +224,7 @@ export function KhataDashboard() {
                             <button
                               onClick={(e) => { e.stopPropagation(); handleSmsReminder(item); }}
                               title="Send SMS Reminder"
-                              className="p-1.5 bg-blue-500/10 text-blue-500 hover:bg-blue-500 hover:text-white rounded-lg transition-colors font-bold flex items-center gap-1 shadow-sm"
+                              className="p-1.5 bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500 hover:text-white rounded-lg transition-colors font-bold flex items-center gap-1 shadow-sm"
                             >
                               <MessageCircle size={16} />
                             </button>

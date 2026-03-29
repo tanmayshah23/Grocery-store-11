@@ -15,7 +15,7 @@ export function QuantumLoader() {
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute inset-0 bg-blue-600/20 rounded-full blur-3xl"
+                    className="absolute inset-0 bg-emerald-600/20 rounded-full blur-3xl"
                 />
 
                 {/* Outer Rotating Ring */}
@@ -26,7 +26,7 @@ export function QuantumLoader() {
                         repeat: Infinity,
                         ease: "linear",
                     }}
-                    className="absolute inset-0 border-[1px] border-blue-500/20 rounded-full"
+                    className="absolute inset-0 border-[1px] border-emerald-500/20 rounded-full"
                 />
 
                 {/* Middle Pulse Ring */}
@@ -40,7 +40,7 @@ export function QuantumLoader() {
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute inset-4 border-[2px] border-blue-400/10 rounded-[2rem]"
+                    className="absolute inset-4 border-[2px] border-emerald-400/10 rounded-[2rem]"
                 />
 
                 {/* Spinning Precision Indicator */}
@@ -51,7 +51,7 @@ export function QuantumLoader() {
                         repeat: Infinity,
                         ease: "linear",
                     }}
-                    className="absolute inset-8 border-t-[3px] border-blue-500 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                    className="absolute inset-8 border-t-[3px] border-emerald-500 rounded-full shadow-[0_0_20px_rgba(45,138,106,0.5)]"
                 />
 
                 {/* Center Logo/Icon Placeholder */}
@@ -65,7 +65,7 @@ export function QuantumLoader() {
                             repeat: Infinity,
                             ease: "easeInOut",
                         }}
-                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-2xl"
+                        className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-2xl"
                     >
                         <div className="w-2 h-2 bg-white rounded-full animate-ping" />
                     </motion.div>
@@ -93,7 +93,7 @@ export function QuantumLoader() {
                                 repeat: Infinity,
                                 delay: i * 0.2,
                             }}
-                            className="w-1 h-1 bg-blue-500 rounded-full"
+                            className="w-1 h-1 bg-emerald-500 rounded-full"
                         />
                     ))}
                 </div>
@@ -119,7 +119,7 @@ export function QuantumLoader() {
                             ease: "linear",
                             delay: Math.random() * 5,
                         }}
-                        className="absolute w-[1px] h-[1px] bg-blue-400"
+                        className="absolute w-[1px] h-[1px] bg-emerald-400"
                     />
                 ))}
             </div>

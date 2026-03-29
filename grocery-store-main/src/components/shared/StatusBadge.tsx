@@ -4,7 +4,7 @@ type PaymentMode = 'cash' | 'upi' | 'online' | 'mixed' | 'credit';
 
 const PAYMENT_BADGE: Record<PaymentMode, { label: string; cls: string }> = {
     cash: { label: '💵 Cash', cls: 'bg-green-500/10 text-green-600' },
-    upi: { label: '📱 UPI', cls: 'bg-blue-500/10 text-blue-600' },
+    upi: { label: '📱 UPI', cls: 'bg-emerald-500/10 text-emerald-600' },
     online: { label: '🌐 Online', cls: 'bg-purple-500/10 text-purple-600' },
     mixed: { label: '🔀 Mixed', cls: 'bg-amber-500/10 text-amber-600' },
     credit: { label: '📒 Credit', cls: 'bg-red-500/10 text-red-600' },

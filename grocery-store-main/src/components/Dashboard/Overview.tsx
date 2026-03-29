@@ -80,13 +80,13 @@ export function DashboardOverview() {
 
   const paymentSplit = [
     { name: 'Cash', value: cashSales, color: '#22c55e' },
-    { name: 'UPI/Online', value: upiSales, color: '#3b82f6' },
-    { name: 'Mixed', value: mixedSales, color: '#a855f7' },
+    { name: 'UPI/Online', value: upiSales, color: '#2d8a6a' },
+    { name: 'Mixed', value: mixedSales, color: '#14b8a6' },
   ].filter(p => p.value > 0);
 
   const stats = [
-    { label: 'Total Sales', value: `₹${totalSalesAmt.toLocaleString()}`, icon: TrendingUp, sub: `${totalBills} bills`, color: 'text-blue-500', bg: 'bg-blue-500/10', hbg: 'group-hover:bg-blue-500' },
-    { label: 'Khata Customers', value: `${totalCustomers}`, icon: Users, sub: `₹${totalKhataVal.toLocaleString()} due`, color: 'text-purple-500', bg: 'bg-purple-500/10', hbg: 'group-hover:bg-purple-500' },
+    { label: 'Total Sales', value: `₹${totalSalesAmt.toLocaleString()}`, icon: TrendingUp, sub: `${totalBills} bills`, color: 'text-emerald-500', bg: 'bg-emerald-500/10', hbg: 'group-hover:bg-emerald-500' },
+    { label: 'Khata Customers', value: `${totalCustomers}`, icon: Users, sub: `₹${totalKhataVal.toLocaleString()} due`, color: 'text-teal-500', bg: 'bg-teal-500/10', hbg: 'group-hover:bg-teal-500' },
     { label: 'Pending Khata', value: `₹${totalKhataVal.toLocaleString()}`, icon: CreditCard, sub: 'Total due', color: 'text-red-500', bg: 'bg-red-500/10', hbg: 'group-hover:bg-red-500', negative: true },
     { label: 'Purchases', value: `₹${totalPurchasesVal.toLocaleString()}`, icon: Package, sub: `${(purchaseData || []).length} orders`, color: 'text-amber-500', bg: 'bg-amber-500/10', hbg: 'group-hover:bg-amber-500' },
   ];
@@ -125,7 +125,7 @@ export function DashboardOverview() {
           {!isInstalled && (
             <button
               onClick={handleInstallClick}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm transition-all shadow-sm active:scale-95 whitespace-nowrap"
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm transition-all shadow-sm active:scale-95 whitespace-nowrap"
             >
               <Download size={16} />
               Install App
@@ -138,8 +138,8 @@ export function DashboardOverview() {
       {showInstallFallback && (
         <div className="fixed inset-0 z-[500] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
           <div className="bg-card w-full max-w-sm rounded-[2rem] p-6 text-center shadow-xl border border-border mt-10">
-            <div className="mx-auto w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
-              <Download size={28} className="text-blue-500" />
+            <div className="mx-auto w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mb-4">
+              <Download size={28} className="text-emerald-500" />
             </div>
             <h3 className="text-xl font-bold mb-2">Install App Manually</h3>
             <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
@@ -150,7 +150,7 @@ export function DashboardOverview() {
             </p>
             <button
               onClick={() => setShowInstallFallback(false)}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all shadow-sm"
+              className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-all shadow-sm"
             >
               Got it
             </button>
@@ -167,7 +167,7 @@ export function DashboardOverview() {
             </div>
           )
           : stats.map((stat, i) => (
-            <div key={i} className="card p-6 flex flex-col justify-between group hover:border-blue-500/40 transition-colors">
+            <div key={i} className="card p-6 flex flex-col justify-between group hover:border-emerald-500/30 transition-colors">
               <div className="flex items-center justify-between">
                 <div className={`p-3 rounded-2xl ${stat.bg} ${stat.color} ${stat.hbg} group-hover:text-white transition-all`}>
                   <stat.icon size={22} />
@@ -192,11 +192,11 @@ export function DashboardOverview() {
         <div className="lg:col-span-2 card p-6">
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-bold text-lg flex items-center gap-2">
-              <TrendingUp className="text-blue-500" size={20} />
+              <TrendingUp className="text-emerald-500" size={20} />
               Sales Activity
             </h3>
             <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><span className="w-3 h-3 rounded-full bg-blue-500 inline-block" /> Sales</span>
+              <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" /> Sales</span>
             </div>
           </div>
           <div className="h-[280px]">
@@ -204,8 +204,8 @@ export function DashboardOverview() {
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="colorSalesOv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15} />
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#2d8a6a" stopOpacity={0.15} />
+                    <stop offset="95%" stopColor="#2d8a6a" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#88888818" />
@@ -219,12 +219,12 @@ export function DashboardOverview() {
                   contentStyle={{ backgroundColor: 'var(--card-bg, #1a1a1a)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', color: '#fff' }}
                   formatter={(v) => [`₹${Number(v).toLocaleString()}`, 'Sales']}
                 />
-                <Area type="monotone" dataKey="sales" stroke="#3b82f6" strokeWidth={2.5} fillOpacity={1} fill="url(#colorSalesOv)">
+                <Area type="monotone" dataKey="sales" stroke="#2d8a6a" strokeWidth={2.5} fillOpacity={1} fill="url(#colorSalesOv)">
                   <LabelList
                     dataKey="sales"
                     position="top"
                     formatter={(value: any) => `₹${Number(value).toLocaleString()}`}
-                    style={{ fill: '#3b82f6', fontSize: 10, fontWeight: 600 }}
+                    style={{ fill: '#2d8a6a', fontSize: 10, fontWeight: 600 }}
                   />
                 </Area>
               </AreaChart>
@@ -277,12 +277,12 @@ export function DashboardOverview() {
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="font-bold text-lg flex items-center gap-2">
-            <TrendingUp className="text-purple-500" size={20} />
+            <TrendingUp className="text-teal-500" size={20} />
             Sales vs Purchases
           </h3>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="w-3 h-3 rounded-full bg-blue-500 inline-block" /> Sales
+              <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" /> Sales
             </span>
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <span className="w-3 h-3 rounded-full bg-amber-500 inline-block" /> Purchases
@@ -300,7 +300,7 @@ export function DashboardOverview() {
                 cursor={{ fill: 'rgba(255,255,255,0.05)' }}
                 formatter={(v, name) => [`₹${Number(v).toLocaleString()}`, name === 'sales' ? 'Sales' : 'Purchases']}
               />
-              <Bar dataKey="sales" fill="#3b82f6" radius={[4, 4, 0, 0]} name="sales" />
+              <Bar dataKey="sales" fill="#2d8a6a" radius={[4, 4, 0, 0]} name="sales" />
               <Bar dataKey="purchases" fill="#f59e0b" radius={[4, 4, 0, 0]} name="purchases" />
             </BarChart>
           </ResponsiveContainer>

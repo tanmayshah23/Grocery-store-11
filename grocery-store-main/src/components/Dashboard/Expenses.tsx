@@ -19,7 +19,7 @@ import { FileDown, Download } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 const CATEGORIES: { key: ExpenseCategory; label: string; icon: any; color: string }[] = [
-  { key: 'rent', label: 'Rent', icon: Home, color: '#3b82f6' },
+  { key: 'rent', label: 'Rent', icon: Home, color: '#2d8a6a' },
   { key: 'electricity', label: 'Electricity', icon: Lightbulb, color: '#eab308' },
   { key: 'water', label: 'Water', icon: Droplets, color: '#06b6d4' },
   { key: 'internet', label: 'Internet', icon: Wifi, color: '#8b5cf6' },
@@ -117,7 +117,7 @@ export function ExpensesDashboard() {
           )
           : [
             { label: 'Total Spent', value: `₹${total.toLocaleString()}`, color: 'text-red-500', bg: 'bg-red-500/10' },
-            { label: 'Rent', value: `₹${(catTotals.find(c => c.key === 'rent')?.value || 0).toLocaleString()}`, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+            { label: 'Rent', value: `₹${(catTotals.find(c => c.key === 'rent')?.value || 0).toLocaleString()}`, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
             { label: 'Electricity', value: `₹${(catTotals.find(c => c.key === 'electricity')?.value || 0).toLocaleString()}`, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
             { label: 'Transport', value: `₹${(catTotals.find(c => c.key === 'transport')?.value || 0).toLocaleString()}`, color: 'text-orange-500', bg: 'bg-orange-500/10' },
           ].map((s, i) => (
@@ -178,7 +178,7 @@ export function ExpensesDashboard() {
                   placeholder="Search expenses..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
-                  className="w-full bg-muted/30 border border-transparent focus:border-blue-500 focus:bg-card rounded-xl py-2 pl-9 pr-4 transition-all outline-none text-sm"
+                  className="w-full bg-muted/30 border border-transparent focus:border-emerald-500 focus:bg-card rounded-xl py-2 pl-9 pr-4 transition-all outline-none text-sm"
                 />
               </div>
               <button
@@ -193,7 +193,7 @@ export function ExpensesDashboard() {
             <div className="flex flex-wrap gap-1.5">
               <button
                 onClick={() => setCatFilter('')}
-                className={cn('px-2.5 py-1 rounded-full text-xs font-bold transition-all', catFilter === '' ? 'bg-blue-500/10 text-blue-500' : 'bg-muted text-muted-foreground hover:text-foreground')}
+                className={cn('px-2.5 py-1 rounded-full text-xs font-bold transition-all', catFilter === '' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground hover:text-foreground')}
               >
                 All
               </button>

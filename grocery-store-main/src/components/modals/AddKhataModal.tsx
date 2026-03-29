@@ -89,7 +89,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
         >
           <div className="flex items-center justify-between p-5 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
                 <UserPlus size={20} />
               </div>
               <div>
@@ -106,7 +106,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
               <input type="text" required value={customerName}
                 onChange={e => setCustomerName(e.target.value.replace(/\d/g, ''))}
                 placeholder="e.g. Rahul Sharma"
-                className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 outline-none transition-all"
+                className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 outline-none transition-all"
                 autoFocus
               />
             </div>
@@ -117,7 +117,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
                 onChange={e => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
                 placeholder="e.g. 9876543210"
                 maxLength={10}
-                className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 outline-none transition-all" />
+                className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 outline-none transition-all" />
             </div>
 
             <div className="space-y-1.5">
@@ -127,7 +127,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
                 <input type="number" required min={1} step="0.01" value={creditAmount}
                   onChange={e => setCreditAmount(e.target.value)}
                   placeholder="e.g. 1500"
-                  className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 pl-8 pr-4 outline-none transition-all font-bold" />
+                  className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 pl-8 pr-4 outline-none transition-all font-bold" />
               </div>
             </div>
 
@@ -136,7 +136,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
               <textarea value={notes} onChange={e => setNotes(e.target.value)}
                 placeholder="e.g. Month ends payment, pending for milk items..."
                 rows={2}
-                className="w-full bg-muted/50 border border-border focus:border-blue-500 focus:bg-card rounded-xl py-2.5 px-4 text-sm outline-none transition-all resize-none" />
+                className="w-full bg-muted/50 border border-border focus:border-emerald-500 focus:bg-card rounded-xl py-2.5 px-4 text-sm outline-none transition-all resize-none" />
             </div>
 
             <div className="p-3 bg-amber-500/5 border border-amber-500/20 rounded-xl text-xs text-muted-foreground">
@@ -144,7 +144,7 @@ export function AddKhataModal({ isOpen, onClose, onSuccess }: AddKhataModalProps
             </div>
 
             <button type="submit" disabled={isLoading}
-              className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]">
+              className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-[0.98]">
               {isLoading ? 'Creating...' : 'Create Khata Account — Saved safely.'}
             </button>
           </form>

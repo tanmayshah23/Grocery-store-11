@@ -76,7 +76,7 @@ export function DateRangePicker({ value, onChange }: DateRangePickerProps) {
                             className={cn(
                                 "px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all active:scale-95",
                                 isActive
-                                    ? "bg-white dark:bg-muted text-blue-600 shadow-sm"
+                                    ? "bg-white dark:bg-muted text-emerald-600 shadow-sm"
                                     : "text-muted-foreground hover:bg-white/50 dark:hover:bg-muted/30"
                             )}
                         >
@@ -95,7 +95,7 @@ export function DateRangePicker({ value, onChange }: DateRangePickerProps) {
                         step="1"
                         value={toDateTimeLocal(value.from)}
                         onChange={(e) => handleManualChange({ from: e.target.value ? new Date(e.target.value).getTime() : value.from, to: value.to })}
-                        className="bg-transparent border-none text-[11px] font-bold outline-none focus:text-blue-600 transition-colors w-44 px-1"
+                        className="bg-transparent border-none text-[11px] font-bold outline-none focus:text-emerald-600 transition-colors w-44 px-1"
                     />
                 </div>
                 <div className="h-4 w-px bg-border hidden sm:block mx-1" />
@@ -106,7 +106,7 @@ export function DateRangePicker({ value, onChange }: DateRangePickerProps) {
                         step="1"
                         value={toDateTimeLocal(value.to)}
                         onChange={(e) => handleManualChange({ from: value.from, to: e.target.value ? new Date(e.target.value).getTime() : value.to })}
-                        className="bg-transparent border-none text-[11px] font-bold outline-none focus:text-blue-600 transition-colors w-44 px-1"
+                        className="bg-transparent border-none text-[11px] font-bold outline-none focus:text-emerald-600 transition-colors w-44 px-1"
                     />
                 </div>
             </div>

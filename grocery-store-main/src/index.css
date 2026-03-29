@@ -2,26 +2,32 @@
 
 @import "tailwindcss";
 
-/* ─── Color Tokens ───────────────────────────────────────── */
+/* ─── Color Tokens — Nature Teal / Forest Green ─── */
 :root {
-  --background: #f5f6fa;
-  --foreground: #0f172a;
+  --background: #f0f5f3;
+  --foreground: #0f2920;
   --card-bg: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --muted-bg: rgba(0, 0, 0, 0.05);
-  --muted-fg: #64748b;
+  --border: rgba(0, 60, 40, 0.08);
+  --muted-bg: rgba(0, 60, 40, 0.04);
+  --muted-fg: #5a7a6e;
+  --accent: #1a5c45;
+  --accent-light: #2d8a6a;
+  --accent-glow: rgba(26, 92, 69, 0.35);
 }
 
 .dark {
-  --background: #0d0f14;
-  --foreground: #f0f4ff;
-  --card-bg: #161922;
-  --border: rgba(255, 255, 255, 0.07);
-  --muted-bg: rgba(255, 255, 255, 0.05);
-  --muted-fg: #8896a9;
+  --background: #0a1410;
+  --foreground: #e8f5ee;
+  --card-bg: #111f19;
+  --border: rgba(45, 138, 106, 0.1);
+  --muted-bg: rgba(45, 138, 106, 0.06);
+  --muted-fg: #6f9a88;
+  --accent: #2d8a6a;
+  --accent-light: #3aaa82;
+  --accent-glow: rgba(45, 138, 106, 0.25);
 }
 
-/* ─── Base ───────────────────────────────────────────────── */
+/* ─── Base ────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -40,10 +46,10 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--background);
   color: var(--foreground);
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ─── Tailwind Semantic Helpers ──────────────────────────── */
+/* ─── Tailwind Semantic Helpers ───────────────────── */
 @layer utilities {
   .bg-background {
     background-color: var(--background);
@@ -70,24 +76,24 @@ body {
   }
 
   .glass {
-    background: rgba(37, 99, 235, 0.02);
+    background: rgba(26, 92, 69, 0.03);
     backdrop-filter: blur(30px) saturate(200%);
     -webkit-backdrop-filter: blur(30px) saturate(200%);
-    border: 1px solid rgba(59, 130, 246, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(45, 138, 106, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 
   .dark .glass {
-    background: rgba(13, 15, 20, 0.6);
-    border: 1px solid rgba(59, 130, 246, 0.05);
+    background: rgba(10, 20, 16, 0.65);
+    border: 1px solid rgba(45, 138, 106, 0.08);
   }
 
   .mesh-bg {
-    background-color: #0d0f14;
+    background-color: #0a1410;
     background-image:
-      radial-gradient(at 0% 0%, hsla(217, 100%, 33%, 0.15) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(225, 100%, 48%, 0.1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(217, 100%, 33%, 0.15) 0, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(26, 92, 69, 0.2) 0, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(45, 138, 106, 0.12) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(26, 92, 69, 0.2) 0, transparent 50%);
   }
 
   .perspective-2000 {
@@ -125,15 +131,19 @@ body {
   }
 }
 
-/* ─── Card Component ─────────────────────────────────────── */
+/* ─── Card Component ─────────────────────────────── */
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 1rem;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ─── Scrollbar ──────────────────────────────────────────── */
+.card:hover {
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -152,7 +162,7 @@ body {
   background: var(--muted-fg);
 }
 
-/* ─── Entry Animations ───────────────────────────────────── */
+/* ─── Entry Animations ───────────────────────────── */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -190,7 +200,26 @@ body {
   animation-duration: 0.5s;
 }
 
-/* ─── Number Input – hide spinners ───────────────────────── */
+/* ─── Shimmer / Glow Effects ─────────────────────── */
+@keyframes shimmer-glow {
+  0% {
+    box-shadow: 0 0 15px rgba(45, 138, 106, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(45, 138, 106, 0.3), 0 0 60px rgba(26, 92, 69, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 15px rgba(45, 138, 106, 0.15);
+  }
+}
+
+.glow-pulse {
+  animation: shimmer-glow 3s ease-in-out infinite;
+}
+
+/* ─── Number Input – hide spinners ───────────────── */
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -201,13 +230,13 @@ input[type='number']::-webkit-outer-spin-button {
   display: none;
 }
 
-/* ─── Date Input ─────────────────────────────────────────── */
+/* ─── Date Input ─────────────────────────────────── */
 input[type='date']::-webkit-calendar-picker-indicator {
   filter: invert(0.6);
   cursor: pointer;
 }
 
-/* ─── Mobile / iOS safe areas ────────────────────────────── */
+/* ─── Mobile / iOS safe areas ────────────────────── */
 html,
 body,
 #root {
@@ -227,7 +256,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ─── Print styles ────────────────────────────────────────── */
+/* ─── Print styles ────────────────────────────────── */
 @media print {
 
   aside,

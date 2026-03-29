@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const DEFAULT_BRAND = "Smart Grocery Store";
-const BLUE = [59, 130, 246] as [number, number, number];
+const BLUE = [26, 92, 69] as [number, number, number];
 const DARK = [15, 23, 42] as [number, number, number];
 
 async function getSettings(): Promise<Settings | undefined> {

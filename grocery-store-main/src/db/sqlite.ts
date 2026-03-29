@@ -53,7 +53,8 @@ export async function initDB() {
       theme_color TEXT NOT NULL,
       is_setup_complete INTEGER NOT NULL,
       last_backup INTEGER,
-      recovery_key TEXT
+      recovery_key TEXT,
+      store_address TEXT DEFAULT ''
     );
 
     CREATE TABLE IF NOT EXISTS sales (
@@ -153,4 +154,11 @@ export async function initDB() {
       sync_status TEXT
     );
   `;
+
+    // Migration: add store_address column if it doesn't exist yet (for existing databases)
+    try {
+        await sqlocal.sql`ALTER TABLE settings ADD COLUMN store_address TEXT DEFAULT ''`;
+    } catch (_) {
+        // Column already exists, ignore
+    }
 }

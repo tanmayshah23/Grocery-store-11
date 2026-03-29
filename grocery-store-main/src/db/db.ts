@@ -94,6 +94,7 @@ export interface Settings {
     is_setup_complete: boolean;
     last_backup?: number;
     recovery_key?: string;
+    store_address?: string;
 }
 
 // ─────────────────────────────────────────────────────────────

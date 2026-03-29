@@ -19,7 +19,7 @@ export function PWAInstallPrompt() {
             >
                 <div className="max-w-md mx-auto bg-card border border-border/50 shadow-2xl rounded-t-3xl rounded-b-xl p-6 pointer-events-auto backdrop-blur-xl relative overflow-hidden">
                     {/* Decorative element */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none" />
 
                     <button
                         onClick={dismissPrompt}
@@ -29,7 +29,7 @@ export function PWAInstallPrompt() {
                     </button>
 
                     <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-indigo-600 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
                             <Download size={24} className="text-white" />
                         </div>
 
@@ -44,7 +44,7 @@ export function PWAInstallPrompt() {
                             {isIOS ? (
                                 <div className="bg-foreground/5 rounded-xl p-3 text-sm">
                                     <p className="flex items-center gap-2 mb-2 font-medium">
-                                        1. Tap <Share size={16} className="text-blue-500" /> in your browser
+                                        1. Tap <Share size={16} className="text-emerald-500" /> in your browser
                                     </p>
                                     <p className="flex items-center gap-2 font-medium">
                                         2. Scroll and tap <span className="bg-background px-2 py-0.5 rounded text-xs font-bold border border-border shadow-sm">Add to Home Screen</span>
@@ -55,7 +55,7 @@ export function PWAInstallPrompt() {
                                     {isInstallable && (
                                         <button
                                             onClick={installApp}
-                                            className="flex-1 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-colors shadow-lg shadow-blue-500/20 active:scale-95"
+                                            className="flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-colors shadow-lg shadow-emerald-500/20 active:scale-95"
                                         >
                                             Install Now
                                         </button>

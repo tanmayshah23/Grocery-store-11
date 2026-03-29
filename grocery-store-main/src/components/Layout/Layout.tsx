@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   LayoutDashboard, ShoppingCart, Package, Receipt, LogOut,
   Moon, Sun, Wifi, WifiOff, Bell, Menu, X, CreditCard,
-  Plus, UserPlus, ChevronRight, Download, User, Smartphone
+  Plus, UserPlus, ChevronRight, Download, User, Smartphone, MessageCircle
 } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 import { cn } from '@/utils/cn';
@@ -18,7 +18,7 @@ import { PWAInstallBanner } from '../shared/PWAInstallBanner';
 import { InstallHelpModal } from '../modals/InstallHelpModal';
 import { notify } from '@/utils/notify';
 
-type View = 'dashboard' | 'sales' | 'purchases' | 'expenses' | 'khata';
+type View = 'dashboard' | 'sales' | 'purchases' | 'expenses' | 'khata' | 'marketing';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -36,6 +36,7 @@ const menuItems = [
   { id: 'purchases' as View, label: 'Purchases', icon: Package },
   { id: 'khata' as View, label: 'Khata', icon: CreditCard },
   { id: 'expenses' as View, label: 'Expenses', icon: Receipt },
+  { id: 'marketing' as View, label: 'Marketing', icon: MessageCircle },
 ];
 
 export function Layout({
@@ -88,7 +89,7 @@ export function Layout({
       <button
         onClick={installApp}
         className={cn(
-          'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-blue-600/10 text-blue-600 hover:bg-blue-600 hover:text-white transition-all font-bold animate-pulse',
+          'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-emerald-600/10 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-bold animate-pulse',
           collapsed && 'justify-center'
         )}
       >
@@ -104,16 +105,16 @@ export function Layout({
       {/* Logo */}
       <div className="flex items-center justify-between p-4 border-b border-border shrink-0">
         <div className={cn('flex items-center gap-3 overflow-hidden transition-all', collapsed && 'opacity-0 w-0 p-0')}>
-          <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30 shrink-0">
+          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-teal-700 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-600/30 shrink-0">
             <span className="text-white font-black text-sm">{logoLetter}</span>
           </div>
           <div className="min-w-0">
-            <span className="font-black text-base leading-tight block truncate text-blue-600">{storeName}</span>
+            <span className="font-black text-base leading-tight block truncate text-emerald-600">{storeName}</span>
             <span className="text-[10px] text-muted-foreground font-medium">Store Management</span>
           </div>
         </div>
         {collapsed && (
-          <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30 mx-auto">
+          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-teal-700 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-600/30 mx-auto">
             <span className="text-white font-black text-sm">{logoLetter}</span>
           </div>
         )}
@@ -136,7 +137,7 @@ export function Layout({
             className={cn(
               'w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all text-left',
               activeView === item.id
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
+                ? 'bg-gradient-to-r from-teal-700 to-emerald-600 text-white shadow-lg shadow-emerald-500/25'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'
             )}
           >
@@ -150,7 +151,7 @@ export function Layout({
         <button
           onClick={() => { setIsProfileOpen(true); if (onNav) onNav(); }}
           className={cn(
-            'w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all text-left border border-transparent hover:border-blue-500/30 text-muted-foreground hover:bg-blue-500/5 hover:text-blue-500 mt-2',
+            'w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all text-left border border-transparent hover:border-emerald-500/30 text-muted-foreground hover:bg-emerald-500/5 hover:text-emerald-500 mt-2',
             collapsed && 'justify-center'
           )}
         >
@@ -193,7 +194,7 @@ export function Layout({
         <button
           onClick={() => setIsInstallHelpOpen(true)}
           className={cn(
-            'flex items-center gap-2 px-3 py-1.5 rounded-lg text-[10px] font-bold text-blue-500 hover:bg-blue-500/5 transition-all text-left uppercase tracking-tighter',
+            'flex items-center gap-2 px-3 py-1.5 rounded-lg text-[10px] font-bold text-emerald-500 hover:bg-emerald-500/5 transition-all text-left uppercase tracking-tighter',
             collapsed && 'justify-center px-0'
           )}
         >
@@ -255,7 +256,7 @@ export function Layout({
             <div className="flex items-center justify-center p-4 border-b border-border">
               <button
                 onClick={() => setSidebarExpanded(true)}
-                className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30"
+                className="h-9 w-9 rounded-xl bg-gradient-to-br from-teal-700 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-600/30"
               >
                 <span className="text-white font-black text-sm">{logoLetter}</span>
               </button>
@@ -269,7 +270,7 @@ export function Layout({
                   className={cn(
                     'w-full flex items-center justify-center py-3 rounded-xl transition-all',
                     activeView === item.id
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
+                      ? 'bg-gradient-to-r from-teal-700 to-emerald-600 text-white shadow-lg shadow-emerald-500/25'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   )}
                 >
@@ -330,7 +331,7 @@ export function Layout({
 
           <div className="flex items-center gap-1.5 shrink-0">
             <button onClick={() => setIsSaleOpen(true)}
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/10 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-xs transition-all">
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/10 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold text-xs transition-all">
               <Plus size={13} /><span className="hidden lg:inline">SALE</span><span className="lg:hidden">Sale</span>
             </button>
             <button onClick={() => setIsPurchaseOpen(true)}
@@ -338,7 +339,7 @@ export function Layout({
               <Package size={13} /><span className="hidden lg:inline">PURCHASE</span><span className="lg:hidden">Buy</span>
             </button>
             <button onClick={() => setIsKhataOpen(true)}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600/10 text-purple-600 hover:bg-purple-600 hover:text-white font-bold text-xs transition-all">
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600/10 text-teal-600 hover:bg-teal-600 hover:text-white font-bold text-xs transition-all">
               <UserPlus size={13} />KHATA
             </button>
             <button onClick={() => setIsExpenseOpen(true)}
@@ -358,7 +359,7 @@ export function Layout({
                 <p className="text-xs font-bold leading-tight">Admin</p>
                 <p className="text-[10px] text-muted-foreground">{storeName}</p>
               </div>
-              <div className="h-8 w-8 md:h-9 md:w-9 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs md:text-sm shadow-inner group-hover:scale-105 transition-transform">
+              <div className="h-8 w-8 md:h-9 md:w-9 rounded-full bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white font-bold text-xs md:text-sm shadow-inner group-hover:scale-105 transition-transform">
                 {logoLetter}
               </div>
             </button>
@@ -380,11 +381,11 @@ export function Layout({
               onClick={() => onViewChange(item.id)}
               className={cn(
                 'flex flex-col items-center gap-0.5 px-2 py-2 rounded-xl transition-all flex-1 max-w-[72px]',
-                activeView === item.id ? 'text-blue-500' : 'text-muted-foreground'
+                activeView === item.id ? 'text-emerald-500' : 'text-muted-foreground'
               )}
             >
               <item.icon size={20} strokeWidth={activeView === item.id ? 2.5 : 1.8} />
-              <span className={cn('text-[9px] font-bold truncate w-full text-center', activeView === item.id && 'text-blue-500')}>
+              <span className={cn('text-[9px] font-bold truncate w-full text-center', activeView === item.id && 'text-emerald-500')}>
                 {item.label}
               </span>
             </button>
@@ -400,10 +401,10 @@ export function Layout({
             onClick={() => setIsSaleOpen(true)}
             className="flex flex-col items-center gap-0.5 px-2 py-2 rounded-xl flex-1 max-w-[72px]"
           >
-            <div className="h-8 w-8 bg-blue-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-600/30">
+            <div className="h-8 w-8 bg-gradient-to-br from-teal-600 to-emerald-500 rounded-xl flex items-center justify-center shadow-md shadow-emerald-600/30">
               <Plus size={18} className="text-white" />
             </div>
-            <span className="text-[9px] font-bold text-blue-500 truncate">+ Sale</span>
+            <span className="text-[9px] font-bold text-emerald-500 truncate">+ Sale</span>
           </button>
         </div>
       </nav>
